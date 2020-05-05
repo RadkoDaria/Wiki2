@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Wiki2.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Wiki2</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Text
+        </th>
+    </tr>
+    @foreach (Wiki2.Models.Article a in Model)
+    {
+<tr>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = a.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = a.Id })
+    </td>
+    <td>
+        @a.Title
+    </td>
+    <td>
+        @a.Category
+    </td>
+    <td>
+        @a.Text
+    </td>
+    </tr>
+    }
+</table>
